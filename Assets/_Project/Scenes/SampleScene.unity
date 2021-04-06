@@ -489,7 +489,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7360961503490967740, guid: ac1432a9abb74104f99d386fb340885b, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7360961503490967740, guid: ac1432a9abb74104f99d386fb340885b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1161,7 +1161,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7360961503490967740, guid: ac1432a9abb74104f99d386fb340885b, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7360961503490967740, guid: ac1432a9abb74104f99d386fb340885b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2116,6 +2116,7 @@ GameObject:
   - component: {fileID: 1850131486}
   - component: {fileID: 1850131487}
   - component: {fileID: 1850131482}
+  - component: {fileID: 1850131484}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2153,6 +2154,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1850131484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850131481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c5353c8478847f8b45793ee1117fdd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!143 &1850131486
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2194,7 +2207,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 580099306123429842, guid: 89f92329caa6e0c43b2892cf1229e6fa, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 580099306123429842, guid: 89f92329caa6e0c43b2892cf1229e6fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2525,10 +2538,10 @@ Transform:
   - {fileID: 1570263300}
   - {fileID: 126265396}
   - {fileID: 2062648704}
-  - {fileID: 1084196861}
   - {fileID: 1917369411}
-  - {fileID: 1971712031}
+  - {fileID: 1084196861}
   - {fileID: 457915603}
+  - {fileID: 1971712031}
   - {fileID: 565985340}
   - {fileID: 990554940}
   - {fileID: 1538180453}
