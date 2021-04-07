@@ -58,3 +58,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: You smell something foul
+  eventChannel: {fileID: 11400000, guid: da741dde4e068e64cb94444d54306810, type: 2}
