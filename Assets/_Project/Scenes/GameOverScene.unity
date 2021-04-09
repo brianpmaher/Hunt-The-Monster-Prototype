@@ -351,6 +351,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 418323387}
   m_CullTransparentMesh: 1
+--- !u!1 &606828316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 606828318}
+  - component: {fileID: 606828317}
+  m_Layer: 0
+  m_Name: GameOverManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &606828317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606828316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df59234628d4e4b8729a9ac2cba11b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restartGameEventChannel: {fileID: 11400000, guid: bc3fdb9f7b4fc4b4eb43bde7d98ac68e, type: 2}
+  exitGameEventChannel: {fileID: 11400000, guid: 4c08d05900749344383830db0c8e48b0, type: 2}
+--- !u!4 &606828318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606828316}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &720884989
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,6 +686,7 @@ GameObject:
   - component: {fileID: 923518364}
   - component: {fileID: 923518363}
   - component: {fileID: 923518362}
+  - component: {fileID: 923518366}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -729,6 +775,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &923518366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923518361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b86d39ecfc14366a757334713458f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  retryButton: {fileID: 825259919}
+  exitButton: {fileID: 1141821717}
+  restartGameEventChannel: {fileID: 11400000, guid: bc3fdb9f7b4fc4b4eb43bde7d98ac68e, type: 2}
+  exitGameEventChannel: {fileID: 11400000, guid: 4c08d05900749344383830db0c8e48b0, type: 2}
 --- !u!1 &1041326507
 GameObject:
   m_ObjectHideFlags: 0

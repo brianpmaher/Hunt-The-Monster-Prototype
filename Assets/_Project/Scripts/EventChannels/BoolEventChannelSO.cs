@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace HuntTheMonster
+namespace HuntTheMonster.EventChannels
 {
     [CreateAssetMenu(menuName = "Events/Bool Event Channel")]
     public class BoolEventChannelSO : ScriptableObject
