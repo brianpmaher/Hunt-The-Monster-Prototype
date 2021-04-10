@@ -3252,6 +3252,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1169206674}
   m_CullTransparentMesh: 1
+--- !u!1 &1182022809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1182022811}
+  - component: {fileID: 1182022810}
+  m_Layer: 0
+  m_Name: Hunt the Monster Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1182022810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182022809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba3309d70be4fbf98299629bf834696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverChannel: {fileID: 11400000, guid: c9b063288b8219b43b1f3f4563abe03f, type: 2}
+--- !u!4 &1182022811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182022809}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.4787903, y: -1.1960144, z: -15.053368}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1212949712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4151,6 +4195,10 @@ PrefabInstance:
       propertyPath: endGameDistance
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3188056615177206786, guid: e147fe07f3c900e48b6c87cb380caa2a, type: 3}
+      propertyPath: gameOverChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: c9b063288b8219b43b1f3f4563abe03f, type: 2}
     - target: {fileID: 4118673665001029467, guid: e147fe07f3c900e48b6c87cb380caa2a, type: 3}
       propertyPath: m_RootOrder
       value: 1

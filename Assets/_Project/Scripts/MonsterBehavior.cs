@@ -26,7 +26,6 @@ namespace HuntTheMonster
 
             if (CanSeePlayer() && !_movingTowardPlayer)
             {
-                Debug.Log("Monster sees the player");
                 ChasePlayer();
             }
         }
@@ -42,11 +41,9 @@ namespace HuntTheMonster
             var distanceToPlayer = (transform.position - _playerTransform.position).magnitude;
             var direction = rayOrigin.forward * distanceToPlayer;
             var ray = new Ray(position, direction);
-            Debug.DrawRay(position, direction);
             
             if (Physics.Raycast(ray, out var hit))
             {
-                Debug.Log(hit.collider.gameObject.name);
                 return hit.collider.CompareTag("Player");
             }
 
@@ -55,7 +52,6 @@ namespace HuntTheMonster
 
         private void ChasePlayer()
         {
-            Debug.Log("Monster is chasing the player");
             _movingTowardPlayer = true;
             StartCoroutine(MoveTowardPlayer());
         }
@@ -67,7 +63,6 @@ namespace HuntTheMonster
 
             if (distanceToPlayer <= endGameDistance)
             {
-                Debug.Log("Player within game over distance");
                 gameOverChannel.RaiseEvent();
                 yield break;
             }
