@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 790650173401319761}
   - component: {fileID: 7764042828112963517}
   - component: {fileID: 4000316787248115671}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Monster_Warning_Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,5 +57,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bff0b4fc79ce42bdbacb018743cf1d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: You smell something foul
   eventChannel: {fileID: 11400000, guid: da741dde4e068e64cb94444d54306810, type: 2}

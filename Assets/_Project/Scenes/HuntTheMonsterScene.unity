@@ -1842,6 +1842,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2026151246608113615, guid: f962cdf8699d9604f93643c603c943d1, type: 3}
   m_PrefabInstance: {fileID: 824485104}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &826188746 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 103128353829340588, guid: e147fe07f3c900e48b6c87cb380caa2a, type: 3}
+  m_PrefabInstance: {fileID: 1546335007}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &829225086
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4134,6 +4139,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3188056615177206786, guid: e147fe07f3c900e48b6c87cb380caa2a, type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3188056615177206786, guid: e147fe07f3c900e48b6c87cb380caa2a, type: 3}
+      propertyPath: rayOrigin
+      value: 
+      objectReference: {fileID: 826188746}
+    - target: {fileID: 3188056615177206786, guid: e147fe07f3c900e48b6c87cb380caa2a, type: 3}
+      propertyPath: endGameDistance
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4118673665001029467, guid: e147fe07f3c900e48b6c87cb380caa2a, type: 3}
       propertyPath: m_RootOrder
       value: 1

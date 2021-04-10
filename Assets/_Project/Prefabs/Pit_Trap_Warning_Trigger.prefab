@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1505433725151086325}
   - component: {fileID: 8964229725589691872}
   - component: {fileID: 5873864317706069192}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pit_Trap_Warning_Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
