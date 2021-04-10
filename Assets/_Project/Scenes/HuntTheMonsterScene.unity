@@ -1487,6 +1487,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restartGameEventChannel: {fileID: 11400000, guid: bc3fdb9f7b4fc4b4eb43bde7d98ac68e, type: 2}
   exitGameEventChannel: {fileID: 11400000, guid: 4c08d05900749344383830db0c8e48b0, type: 2}
+  gameOverEventChannel: {fileID: 11400000, guid: c9b063288b8219b43b1f3f4563abe03f, type: 2}
+  cursorLockScript: {fileID: 1850131488}
 --- !u!4 &606828318
 Transform:
   m_ObjectHideFlags: 0
@@ -2858,10 +2860,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b86d39ecfc14366a757334713458f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverScreen: {fileID: 917718009}
   retryButton: {fileID: 825259919}
   exitButton: {fileID: 1141821717}
   restartGameEventChannel: {fileID: 11400000, guid: bc3fdb9f7b4fc4b4eb43bde7d98ac68e, type: 2}
   exitGameEventChannel: {fileID: 11400000, guid: 4c08d05900749344383830db0c8e48b0, type: 2}
+  gameOverEventChannel: {fileID: 11400000, guid: c9b063288b8219b43b1f3f4563abe03f, type: 2}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
