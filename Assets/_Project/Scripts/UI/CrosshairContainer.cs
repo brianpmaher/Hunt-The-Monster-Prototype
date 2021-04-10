@@ -1,14 +1,15 @@
-﻿using UnityEngine;
+﻿using HuntTheMonster.Environment;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace HuntTheMonster
+namespace HuntTheMonster.UI
 {
-    public class UICrosshairContainerBehavior : MonoBehaviour
+    public class CrosshairContainer : MonoBehaviour
     {
         [SerializeField] private Camera playerCamera;
         [SerializeField] private Image crosshairImage;
 
-        private InteractableBehavior _interactable;
+        private Interactable _interactable;
 
         private bool IsLookingAtInteractable => _interactable != null;
         private bool ReleasedUseKey => Input.GetKeyUp(KeyCode.E);
@@ -25,7 +26,7 @@ namespace HuntTheMonster
 
             if (Physics.Raycast(ray, out var hit))
             {
-                _interactable = hit.collider.gameObject.GetComponent<InteractableBehavior>();
+                _interactable = hit.collider.gameObject.GetComponent<Interactable>();
                 if (_interactable != null)
                 {
                     SetInteractableCrosshair();

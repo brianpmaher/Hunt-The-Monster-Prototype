@@ -4,7 +4,7 @@ using UnityEngine.Events;
 namespace HuntTheMonster.EventChannels
 {
     [CreateAssetMenu(menuName = "Events/Void Event Channel")]
-    public class VoidEventChannelSO : ScriptableObject
+    public class VoidEventChannel : ScriptableObject
     {
         public UnityAction OnEventRaised;
 

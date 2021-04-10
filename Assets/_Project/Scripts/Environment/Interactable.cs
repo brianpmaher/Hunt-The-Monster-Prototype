@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace HuntTheMonster
+namespace HuntTheMonster.Environment
 {
-    public class InteractableBehavior : MonoBehaviour
+    public class Interactable : MonoBehaviour
     {
         [SerializeField] private UnityEvent onInteract;
 

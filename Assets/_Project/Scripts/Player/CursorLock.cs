@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using Cursor = UnityEngine.Cursor;
 
-namespace HuntTheMonster
+namespace HuntTheMonster.Player
 {
-    public class CursorLockBehavior : MonoBehaviour
+    public class CursorLock : MonoBehaviour
     {
         private void Update()
         {

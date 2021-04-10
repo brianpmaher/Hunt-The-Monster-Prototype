@@ -2,14 +2,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace HuntTheMonster
+namespace HuntTheMonster.UI
 {
-    public class UIGameOverContainerBehavior : MonoBehaviour
+    public class GameOverContainer : MonoBehaviour
     {
         [SerializeField] private Button retryButton;
         [SerializeField] private Button exitButton;
-        [SerializeField] private VoidEventChannelSO restartGameEventChannel;
-        [SerializeField] private VoidEventChannelSO exitGameEventChannel;
+        [SerializeField] private VoidEventChannel restartGameEventChannel;
+        [SerializeField] private VoidEventChannel exitGameEventChannel;
 
         private void OnEnable()
         {

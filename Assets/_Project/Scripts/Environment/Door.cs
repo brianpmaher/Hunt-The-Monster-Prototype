@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace HuntTheMonster
+namespace HuntTheMonster.Environment
 {
-    public class DoorBehavior : MonoBehaviour
+    public class Door : MonoBehaviour
     {
         private bool _isOpen;
         

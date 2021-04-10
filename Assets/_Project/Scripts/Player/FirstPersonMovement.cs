@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace HuntTheMonster
+namespace HuntTheMonster.Player
 {
     [RequireComponent(typeof(CharacterController))]
-    public class FirstPersonMovementBehavior : MonoBehaviour
+    public class FirstPersonMovement : MonoBehaviour
     {
         [SerializeField] private float forwardSpeed = 2f;
         [SerializeField] private float strafeSpeed = 2f;

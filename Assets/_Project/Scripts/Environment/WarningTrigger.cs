@@ -1,11 +1,11 @@
 ﻿using HuntTheMonster.EventChannels;
 using UnityEngine;
 
-namespace HuntTheMonster
+namespace HuntTheMonster.Environment
 {
-    public class WarningBehavior : MonoBehaviour
+    public class WarningTrigger : MonoBehaviour
     {
-        [SerializeField] private BoolEventChannelSO eventChannel;
+        [SerializeField] private BoolEventChannel eventChannel;
 
         private void OnTriggerEnter(Collider other)
         {

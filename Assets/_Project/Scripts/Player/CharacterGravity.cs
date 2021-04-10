@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-namespace HuntTheMonster
+namespace HuntTheMonster.Player
 {
     [RequireComponent(typeof(CharacterController))]
-    public class CharacterGravityBehavior : MonoBehaviour
+    public class CharacterGravity : MonoBehaviour
     {
         private CharacterController _controller;
         

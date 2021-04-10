@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace HuntTheMonster
+namespace HuntTheMonster.Player
 {
-    public class PlayerManagerBehavior : MonoBehaviour
+    public class PlayerManager : MonoBehaviour
     {
         public static Transform PlayerTransform { get; private set; }
 

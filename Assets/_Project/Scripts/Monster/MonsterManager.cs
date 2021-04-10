@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using HuntTheMonster.EventChannels;
+using HuntTheMonster.Player;
 using UnityEngine;
 
-namespace HuntTheMonster
+namespace HuntTheMonster.Monster
 {
-    public class MonsterBehavior : MonoBehaviour
+    public class MonsterManager : MonoBehaviour
     {
         [SerializeField] private float moveSpeed = 5f;
         [SerializeField] private float endGameDistance = 1f;
-        [SerializeField] private VoidEventChannelSO gameOverChannel;
+        [SerializeField] private VoidEventChannel gameOverChannel;
         [SerializeField] private Transform rayOrigin;
             
         private Transform _playerTransform;
@@ -17,7 +17,7 @@ namespace HuntTheMonster
         
         private void Start()
         {
-            _playerTransform = PlayerManagerBehavior.PlayerTransform;
+            _playerTransform = PlayerManager.PlayerTransform;
         }
 
         private void Update()

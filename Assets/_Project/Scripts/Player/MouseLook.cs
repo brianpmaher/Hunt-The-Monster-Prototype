@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace HuntTheMonster
+namespace HuntTheMonster.Player
 {
-    public class MouseLookBehavior : MonoBehaviour
+    public class MouseLook : MonoBehaviour
     {
         [SerializeField] private Camera firstPersonCamera;
         [SerializeField] private float verticalLookSpeed = 5f;

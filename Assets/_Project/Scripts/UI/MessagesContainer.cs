@@ -1,14 +1,14 @@
 ﻿using HuntTheMonster.EventChannels;
 using UnityEngine;
 
-namespace HuntTheMonster
+namespace HuntTheMonster.UI
 {
-    public class UIMessagesContainerBehavior : MonoBehaviour
+    public class MessagesContainer : MonoBehaviour
     {
         [SerializeField] private GameObject feelDraftText;
-        [SerializeField] private BoolEventChannelSO feelDraftChannel;
+        [SerializeField] private BoolEventChannel feelDraftChannel;
         [SerializeField] private GameObject smellOdorText;
-        [SerializeField] private BoolEventChannelSO smellOdorChannel;
+        [SerializeField] private BoolEventChannel smellOdorChannel;
 
         private void OnEnable()
         {

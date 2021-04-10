@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 
 namespace HuntTheMonster
 {
-    public class GameOverManagerBehavior : MonoBehaviour
+    public class GameManager : MonoBehaviour
     {
-        [SerializeField] private VoidEventChannelSO restartGameEventChannel;
-        [SerializeField] private VoidEventChannelSO exitGameEventChannel;
+        [SerializeField] private VoidEventChannel restartGameEventChannel;
+        [SerializeField] private VoidEventChannel exitGameEventChannel;
 
         private void OnEnable()
         {
