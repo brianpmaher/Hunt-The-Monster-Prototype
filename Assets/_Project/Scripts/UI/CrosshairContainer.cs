@@ -10,14 +10,19 @@ namespace HuntTheMonster.UI
         [SerializeField] private Image crosshairImage;
 
         private Interactable _interactable;
+        private Markable _markable;
 
         private bool IsLookingAtInteractable => _interactable != null;
         private bool ReleasedUseKey => Input.GetKeyUp(KeyCode.E);
+        private bool IsLookingAtMarkable => _markable != null;
+        private bool ReleasedMarkKey => Input.GetKeyUp(KeyCode.F);
 
         private void Update()
         {
             CheckIsLookingAtInteractable();
             CheckForInteraction();
+            CheckIsLookingAtMarkable();
+            CheckForMark();
         }
 
         private void CheckIsLookingAtInteractable()
@@ -47,6 +52,24 @@ namespace HuntTheMonster.UI
             if (IsLookingAtInteractable && ReleasedUseKey)
             {
                 _interactable.Interact();
+            }
+        }
+
+        private void CheckIsLookingAtMarkable()
+        {
+            var ray = playerCamera.ScreenPointToRay(crosshairImage.transform.position);
+
+            if (Physics.Raycast(ray, out var hit))
+            {
+                _markable = hit.collider.gameObject.GetComponent<Markable>();
+            }
+        }
+
+        private void CheckForMark()
+        {
+            if (IsLookingAtMarkable && ReleasedMarkKey)
+            {
+                _markable.Mark();
             }
         }
         
