@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using HuntTheMonster.EventChannels;
+using UnityEngine;
 
 namespace HuntTheMonster.Environment
 {
@@ -6,7 +7,10 @@ namespace HuntTheMonster.Environment
     {
         [SerializeField] private Transform[] markablePositions;
         [SerializeField] private GameObject markerPrefab;
-
+        [SerializeField] private VoidEventChannel gameWinEventChannel;
+        [SerializeField] private VoidEventChannel gameOverEventChannel;
+        [SerializeField] private bool isMonsterDoor;
+        
         private bool _marked;
 
         public void Mark()
@@ -19,6 +23,15 @@ namespace HuntTheMonster.Environment
                 }
 
                 _marked = true;
+
+                if (isMonsterDoor)
+                {
+                    gameWinEventChannel.RaiseEvent();
+                }
+                else
+                {
+                    gameOverEventChannel.RaiseEvent();
+                }
             }
         }
     }

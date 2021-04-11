@@ -61,6 +61,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2626766086036273497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8308829430364025050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f424f1244c9410f91a510523eec3a88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  markablePositions:
+  - {fileID: 1378567650954991177}
+  - {fileID: 6612829586643626803}
+  markerPrefab: {fileID: 1242608787260842, guid: afcad7bbccdb2a343ab3f73a52efc291, type: 3}
+  gameWinEventChannel: {fileID: 11400000, guid: 845516e2561ee1c4ebf69f2549fa653b, type: 2}
+  gameOverEventChannel: {fileID: 11400000, guid: c9b063288b8219b43b1f3f4563abe03f, type: 2}
+  isMonsterDoor: 0
 --- !u!114 &4002901173108608648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,22 +119,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2626766086036273497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8308829430364025050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f424f1244c9410f91a510523eec3a88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  markablePositions:
-  - {fileID: 1378567650954991177}
-  - {fileID: 6612829586643626803}
-  markerPrefab: {fileID: 1242608787260842, guid: afcad7bbccdb2a343ab3f73a52efc291, type: 3}
 --- !u!1 &8988675759412817074
 GameObject:
   m_ObjectHideFlags: 0
