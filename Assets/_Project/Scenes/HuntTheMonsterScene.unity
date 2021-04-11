@@ -797,6 +797,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2626766086036273497, guid: f962cdf8699d9604f93643c603c943d1, type: 3}
+      propertyPath: isMonsterDoor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3583040666509407571, guid: f962cdf8699d9604f93643c603c943d1, type: 3}
       propertyPath: m_Name
       value: Door (26)
@@ -1888,6 +1892,7 @@ MonoBehaviour:
   restartGameEventChannel: {fileID: 11400000, guid: bc3fdb9f7b4fc4b4eb43bde7d98ac68e, type: 2}
   exitGameEventChannel: {fileID: 11400000, guid: 4c08d05900749344383830db0c8e48b0, type: 2}
   gameOverEventChannel: {fileID: 11400000, guid: c9b063288b8219b43b1f3f4563abe03f, type: 2}
+  gameWinEventChannel: {fileID: 11400000, guid: 845516e2561ee1c4ebf69f2549fa653b, type: 2}
   cursorLockScript: {fileID: 1850131488}
 --- !u!4 &606828318
 Transform:
@@ -2702,6 +2707,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2626766086036273497, guid: f962cdf8699d9604f93643c603c943d1, type: 3}
+      propertyPath: isMonsterDoor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3583040666509407571, guid: f962cdf8699d9604f93643c603c943d1, type: 3}
       propertyPath: m_Name
       value: Door (27)
@@ -2763,6 +2772,10 @@ PrefabInstance:
     - target: {fileID: 2026151246608113615, guid: f962cdf8699d9604f93643c603c943d1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626766086036273497, guid: f962cdf8699d9604f93643c603c943d1, type: 3}
+      propertyPath: isMonsterDoor
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3583040666509407571, guid: f962cdf8699d9604f93643c603c943d1, type: 3}
       propertyPath: m_Name
@@ -5299,6 +5312,10 @@ PrefabInstance:
     - target: {fileID: 2026151246608113615, guid: f962cdf8699d9604f93643c603c943d1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626766086036273497, guid: f962cdf8699d9604f93643c603c943d1, type: 3}
+      propertyPath: isMonsterDoor
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3583040666509407571, guid: f962cdf8699d9604f93643c603c943d1, type: 3}
       propertyPath: m_Name

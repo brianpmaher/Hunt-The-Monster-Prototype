@@ -10,20 +10,23 @@ namespace HuntTheMonster
         [SerializeField] private VoidEventChannel restartGameEventChannel;
         [SerializeField] private VoidEventChannel exitGameEventChannel;
         [SerializeField] private VoidEventChannel gameOverEventChannel;
+        [SerializeField] private VoidEventChannel gameWinEventChannel;
         [SerializeField] private CursorLock cursorLockScript;
 
         private void OnEnable()
         {
             restartGameEventChannel.OnEventRaised += RestartGame;
             exitGameEventChannel.OnEventRaised += ExitGame;
-            gameOverEventChannel.OnEventRaised += HandleGameOver;
+            gameOverEventChannel.OnEventRaised += HandleGameEnd;
+            gameWinEventChannel.OnEventRaised += HandleGameEnd;
         }
 
         private void OnDisable()
         {
             restartGameEventChannel.OnEventRaised -= RestartGame;
             exitGameEventChannel.OnEventRaised -= ExitGame;
-            gameOverEventChannel.OnEventRaised -= HandleGameOver;
+            gameOverEventChannel.OnEventRaised -= HandleGameEnd;
+            gameWinEventChannel.OnEventRaised -= HandleGameEnd;
         }
 
         private void RestartGame()
@@ -40,7 +43,7 @@ namespace HuntTheMonster
 #endif
         }
 
-        private void HandleGameOver()
+        private void HandleGameEnd()
         {
             cursorLockScript.enabled = false;
             Cursor.lockState = CursorLockMode.None;
