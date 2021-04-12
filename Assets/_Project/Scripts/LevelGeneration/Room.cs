@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace HuntTheMonster.LevelGeneration
@@ -7,19 +8,16 @@ namespace HuntTheMonster.LevelGeneration
     {
         public List<IEntity> Entities;
 
+        public bool HasAnyEntities => Entities.Count > 0;
+
         public Room()
         {
             Entities = new List<IEntity>();
         }
 
-        public bool HasPlayerEntity()
+        public bool HasEntity(Type entityType)
         {
-            return Entities.Any(entity => entity.GetType() == typeof(PlayerEntity));
-        }
-        
-        public bool HasMonsterEntity()
-        {
-            return Entities.Any(entity => entity.GetType() == typeof(MonsterEntity));
+            return Entities.Any(entity => entity.GetType() == entityType);
         }
     }
 }
