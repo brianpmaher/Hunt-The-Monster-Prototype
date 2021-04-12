@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace HuntTheMonster.LevelGeneration
 {
@@ -15,6 +16,7 @@ namespace HuntTheMonster.LevelGeneration
         [SerializeField] private GameObject roomFloor;
         [SerializeField] private GameObject solidWall;
         [SerializeField] private GameObject wallWithDoor;
+        [SerializeField] private GameObject player;
         
         private Transform _rootTransform;
         private Level _level;
@@ -23,12 +25,14 @@ namespace HuntTheMonster.LevelGeneration
         {
             _rootTransform = rootLevel.transform;
             _level = new Level(levelWidth, levelLength);
+            _level.PlacePlayerStart();
         }
 
         private void Start()
         {
             PlaceFloors();
             PlaceWalls();
+            PlacePlayer();
         }
 
         private void PlaceFloors()
@@ -104,6 +108,24 @@ namespace HuntTheMonster.LevelGeneration
             else
             {
                 Instantiate(wallWithDoor, roomPosition, Quaternion.identity, _rootTransform);
+            }
+        }
+
+        private void PlacePlayer()
+        {
+            for (var x = 0; x < _level.Rooms.GetLength(0); x++)
+            {
+                for (var y = 0; y < _level.Rooms.GetLength(1); y++)
+                {
+                    var room = _level.Rooms[x, y];
+                    var roomContainsPlayer = room.Entities.Any(entity => entity.GetType() == typeof(PlayerEntity));
+
+                    if (roomContainsPlayer)
+                    {
+                        var roomPosition = new Vector3(x * roomWidth, 0, y * roomLength);
+                        Instantiate(player, roomPosition, Quaternion.identity, _rootTransform);
+                    }
+                }
             }
         }
     }
