@@ -17,6 +17,7 @@ namespace HuntTheMonster.LevelGeneration
         [SerializeField] private GameObject solidWall;
         [SerializeField] private GameObject wallWithDoor;
         [SerializeField] private GameObject player;
+        [SerializeField] private GameObject monster;
         
         private Transform _rootTransform;
         private Level _level;
@@ -26,6 +27,7 @@ namespace HuntTheMonster.LevelGeneration
             _rootTransform = rootLevel.transform;
             _level = new Level(levelWidth, levelLength);
             _level.PlacePlayerStart();
+            _level.PlaceMonsterStart();
         }
 
         private void Start()
@@ -33,6 +35,7 @@ namespace HuntTheMonster.LevelGeneration
             PlaceFloors();
             PlaceWalls();
             PlacePlayer();
+            PlaceMonster();
         }
 
         private void PlaceFloors()
@@ -118,12 +121,30 @@ namespace HuntTheMonster.LevelGeneration
                 for (var y = 0; y < _level.Rooms.GetLength(1); y++)
                 {
                     var room = _level.Rooms[x, y];
-                    var roomContainsPlayer = room.Entities.Any(entity => entity.GetType() == typeof(PlayerEntity));
 
-                    if (roomContainsPlayer)
+                    if (room.HasPlayerEntity())
                     {
                         var roomPosition = new Vector3(x * roomWidth, 0, y * roomLength);
                         Instantiate(player, roomPosition, Quaternion.identity, _rootTransform);
+                        return;
+                    }
+                }
+            }
+        }
+
+        private void PlaceMonster()
+        {
+            for (var x = 0; x < _level.Rooms.GetLength(0); x++)
+            {
+                for (var y = 0; y < _level.Rooms.GetLength(1); y++)
+                {
+                    var room = _level.Rooms[x, y];
+
+                    if (room.HasMonsterEntity())
+                    {
+                        var roomPosition = new Vector3(x * roomWidth, 0, y * roomLength);
+                        Instantiate(monster, roomPosition, Quaternion.identity, _rootTransform);
+                        return;
                     }
                 }
             }

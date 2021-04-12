@@ -44,6 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3451ebb3a79945218388b816ca4ce9b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 10
+  endGameDistance: 1.5
+  gameOverChannel: {fileID: 11400000, guid: c9b063288b8219b43b1f3f4563abe03f, type: 2}
+  rayOrigin: {fileID: 103128353829340588}
 --- !u!1001 &107704407953483080
 PrefabInstance:
   m_ObjectHideFlags: 0
