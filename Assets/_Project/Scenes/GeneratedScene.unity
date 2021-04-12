@@ -478,6 +478,8 @@ MonoBehaviour:
   roomLength: 10
   rootLevel: {fileID: 364321755}
   roomFloor: {fileID: 8628563097227061317, guid: 57454abba5cc1254d96fe140075b32d6, type: 3}
+  solidWall: {fileID: 6709550151941117501, guid: 7ce6b20b5bb876f40ae193937684de82, type: 3}
+  wallWithDoor: {fileID: 3687174879668582334, guid: ef03527a873e13347a10d5f0c684cc5c, type: 3}
 --- !u!4 &364321757
 Transform:
   m_ObjectHideFlags: 0
@@ -724,7 +726,7 @@ GameObject:
   - component: {fileID: 865645205}
   - component: {fileID: 865645204}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: DirectionalLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
