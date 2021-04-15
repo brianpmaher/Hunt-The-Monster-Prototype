@@ -20,7 +20,9 @@ namespace HuntTheMonster.LevelGeneration
         [SerializeField] private GameObject wallWithDoor;
         [SerializeField] private GameObject player;
         [SerializeField] private GameObject monster;
+        [SerializeField] private GameObject monsterWarningTrigger;
         [SerializeField] private GameObject trap;
+        [SerializeField] private GameObject trapWarningTrigger;
         
         private Transform _rootTransform;
         private Level _level;
@@ -59,18 +61,36 @@ namespace HuntTheMonster.LevelGeneration
                 for (var y = 0; y < _level.Rooms.GetLength(1); y++)
                 {
                     var room = _level.Rooms[x, y];
+                    var roomCoordinate = new Vector2Int(x, y);
                     var position = new Vector3(x * roomWidth, 0, y * roomLength);
 
                     if (room.HasEntity(typeof(TrapEntity)))
                     {
-                        Instantiate(trap, position, Quaternion.identity, _rootTransform);
+                        PlaceTrapFloor(position);
                     }
                     else
                     {
-                        Instantiate(roomFloor, position, Quaternion.identity, _rootTransform);
+                        PlaceRegularFloor(position);
                     }
                 }
             }
+        }
+
+        private void PlaceTrapFloor(Vector3 position)
+        {
+            var topBottomOffset = new Vector3(0, 0, roomLength);
+            var leftRightOffset = new Vector3(roomWidth, 0, 0);
+            
+            Instantiate(trap, position, Quaternion.identity, _rootTransform);
+            Instantiate(trapWarningTrigger, position + topBottomOffset, Quaternion.identity, _rootTransform);
+            Instantiate(trapWarningTrigger, position - topBottomOffset, Quaternion.identity, _rootTransform);
+            Instantiate(trapWarningTrigger, position + leftRightOffset, Quaternion.identity, _rootTransform);
+            Instantiate(trapWarningTrigger, position - leftRightOffset, Quaternion.identity, _rootTransform);
+        }
+
+        private void PlaceRegularFloor(Vector3 position)
+        {
+            Instantiate(roomFloor, position, Quaternion.identity, _rootTransform);
         }
 
         private void PlaceWalls()
@@ -170,11 +190,17 @@ namespace HuntTheMonster.LevelGeneration
         private void PlaceMonster()
         {
             var monsterRoomCoord = FindRoomWithEntity(typeof(MonsterEntity));
-            var roomPosition = new Vector3(monsterRoomCoord.x * roomWidth, 0, monsterRoomCoord.y * roomLength);
+            var position = new Vector3(monsterRoomCoord.x * roomWidth, 0, monsterRoomCoord.y * roomLength);
             var room = _level.Rooms[monsterRoomCoord.x, monsterRoomCoord.y];
+            var topBottomOffset = new Vector3(0, 0, roomLength);
+            var leftRightOffset = new Vector3(roomWidth, 0, 0);
             
-            Instantiate(monster, roomPosition, Quaternion.identity, _rootTransform);
+            Instantiate(monster, position, Quaternion.identity, _rootTransform);
             room.MarkableDoors.ForEach(markable => markable.isMonsterDoor = true);
+            Instantiate(monsterWarningTrigger, position + topBottomOffset, Quaternion.identity, _rootTransform);
+            Instantiate(monsterWarningTrigger, position - topBottomOffset, Quaternion.identity, _rootTransform);
+            Instantiate(monsterWarningTrigger, position + leftRightOffset, Quaternion.identity, _rootTransform);
+            Instantiate(monsterWarningTrigger, position - leftRightOffset, Quaternion.identity, _rootTransform);
         }
 
         private Vector2Int FindRoomWithEntity(Type entityType)
