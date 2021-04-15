@@ -477,7 +477,7 @@ MonoBehaviour:
   roomWidth: 10
   roomLength: 10
   rootLevel: {fileID: 364321755}
-  numTraps: 1
+  numTraps: 3
   roomFloor: {fileID: 8628563097227061317, guid: 57454abba5cc1254d96fe140075b32d6, type: 3}
   solidWall: {fileID: 6709550151941117501, guid: 7ce6b20b5bb876f40ae193937684de82, type: 3}
   wallWithDoor: {fileID: 3687174879668582334, guid: ef03527a873e13347a10d5f0c684cc5c, type: 3}
