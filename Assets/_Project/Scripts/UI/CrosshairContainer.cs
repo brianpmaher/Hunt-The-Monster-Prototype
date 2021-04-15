@@ -6,7 +6,7 @@ namespace HuntTheMonster.UI
 {
     public class CrosshairContainer : MonoBehaviour
     {
-        [SerializeField] private Camera playerCamera;
+        [SerializeField] public Camera playerCamera;
         [SerializeField] private Image crosshairImage;
 
         private Interactable _interactable;

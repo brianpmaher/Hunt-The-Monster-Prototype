@@ -1,5 +1,7 @@
 ﻿using System;
 using HuntTheMonster.Environment;
+using HuntTheMonster.Player;
+using HuntTheMonster.UI;
 using UnityEngine;
 
 namespace HuntTheMonster.LevelGeneration
@@ -184,7 +186,12 @@ namespace HuntTheMonster.LevelGeneration
         {
             var playerRoomCoord = FindRoomWithEntity(typeof(PlayerEntity));
             var roomPosition = new Vector3(playerRoomCoord.x * roomWidth, 0, playerRoomCoord.y * roomLength);
-            Instantiate(player, roomPosition, Quaternion.identity, _rootTransform);
+            var playerInstance = Instantiate(player, roomPosition, Quaternion.identity, _rootTransform);
+            var playerCamera = playerInstance.GetComponent<PlayerManager>().PlayerCamera;
+            var crosshairContainer = FindObjectOfType<CrosshairContainer>();
+            crosshairContainer.playerCamera = playerCamera.GetComponent<Camera>();
+            var gameManager = FindObjectOfType<GameManager>();
+            gameManager.cursorLockScript = playerInstance.GetComponent<CursorLock>();
         }
 
         private void PlaceMonster()

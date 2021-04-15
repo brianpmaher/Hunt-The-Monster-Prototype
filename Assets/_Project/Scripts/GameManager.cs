@@ -11,7 +11,7 @@ namespace HuntTheMonster
         [SerializeField] private VoidEventChannel exitGameEventChannel;
         [SerializeField] private VoidEventChannel gameOverEventChannel;
         [SerializeField] private VoidEventChannel gameWinEventChannel;
-        [SerializeField] private CursorLock cursorLockScript;
+        [SerializeField] public CursorLock cursorLockScript;
 
         private void OnEnable()
         {
@@ -31,7 +31,7 @@ namespace HuntTheMonster
 
         private void RestartGame()
         {
-            SceneManager.LoadScene("HuntTheMonsterScene");
+            SceneManager.LoadScene("GeneratedScene");
         }
 
         private void ExitGame()
