@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5823370972010705600}
+  - component: {fileID: 2495292963057177577}
   m_Layer: 0
   m_Name: Wall_Door
   m_TagString: Untagged
@@ -34,6 +35,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2495292963057177577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3687174879668582334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319a738fc5cd49f3bd1d1d64a6a7e42a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 4755040514401631735}
 --- !u!1001 &3510151720547261420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164,6 +178,11 @@ PrefabInstance:
 --- !u!4 &3363623417161831138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2026151246608113615, guid: f962cdf8699d9604f93643c603c943d1, type: 3}
+  m_PrefabInstance: {fileID: 3653448989788294445}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4755040514401631735 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8308829430364025050, guid: f962cdf8699d9604f93643c603c943d1, type: 3}
   m_PrefabInstance: {fileID: 3653448989788294445}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5017265716660920154

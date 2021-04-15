@@ -9,8 +9,8 @@ namespace HuntTheMonster.Environment
         [SerializeField] private GameObject markerPrefab;
         [SerializeField] private VoidEventChannel gameWinEventChannel;
         [SerializeField] private VoidEventChannel gameOverEventChannel;
-        [SerializeField] private bool isMonsterDoor;
-        
+        [SerializeField] public bool isMonsterDoor;
+
         private bool _marked;
 
         public void Mark()

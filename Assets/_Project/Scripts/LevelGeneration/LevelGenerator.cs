@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using HuntTheMonster.Environment;
 using UnityEngine;
 
 namespace HuntTheMonster.LevelGeneration
@@ -27,20 +28,30 @@ namespace HuntTheMonster.LevelGeneration
         private void Awake()
         {
             _rootTransform = rootLevel.transform;
+        }
+
+        private void Start()
+        {
+            GenerateLevelEntities();
+            PlaceLevelObjects();
+        }
+
+        private void GenerateLevelEntities()
+        {
             _level = new Level(levelWidth, levelLength);
             _level.PlacePlayerStart();
             _level.PlaceMonsterStart();
             _level.PlaceTraps(numTraps);
         }
-
-        private void Start()
+        
+        private void PlaceLevelObjects() 
         {
             PlaceFloors();
             PlaceWalls();
             PlacePlayer();
             PlaceMonster();
         }
-
+        
         private void PlaceFloors()
         {
             for (var x = 0; x < _level.Rooms.GetLength(0); x++)
@@ -73,9 +84,10 @@ namespace HuntTheMonster.LevelGeneration
                     var isRightEdge = x == levelWidth - 1;
                     var isBottomEdge = y == 0;
                     var isLeftEdge = x == 0;
+                    var roomCoord = new Vector2Int(x, y);
 
-                    PlaceTopWall(isTopEdge, roomPosition);
-                    PlaceRightWall(isRightEdge, roomPosition);
+                    PlaceTopWall(isTopEdge, roomPosition, roomCoord);
+                    PlaceRightWall(isRightEdge, roomPosition, roomCoord);
                     PlaceBottomWall(isBottomEdge, roomPosition);
                     PlaceLeftWall(isLeftEdge, roomPosition);
                 }
@@ -100,7 +112,7 @@ namespace HuntTheMonster.LevelGeneration
             }
         }
 
-        private void PlaceRightWall(bool isRightEdge, Vector3 roomPosition)
+        private void PlaceRightWall(bool isRightEdge, Vector3 roomPosition, Vector2Int roomCoord)
         {
             if (isRightEdge)
             {
@@ -110,11 +122,22 @@ namespace HuntTheMonster.LevelGeneration
             else
             {
                 var wallRotation = Quaternion.Euler(0, 90, 0);
-                Instantiate(wallWithDoor, roomPosition, wallRotation, _rootTransform);
+                var door = Instantiate(wallWithDoor, roomPosition, wallRotation, _rootTransform);
+                var markable = door.GetComponent<WallWithDoor>().Door.GetComponent<Markable>();
+                var room = _level.Rooms[roomCoord.x, roomCoord.y];
+                var isThereRoomToRight = roomCoord.x < _level.Rooms.GetLength(0) - 1;
+                
+                room.MarkableDoors.Add(markable);
+
+                if (isThereRoomToRight)
+                {
+                    var rightRoom = _level.Rooms[roomCoord.x + 1, roomCoord.y];
+                    rightRoom.MarkableDoors.Add(markable);
+                }
             }
         }
 
-        private void PlaceTopWall(bool isTopEdge, Vector3 roomPosition)
+        private void PlaceTopWall(bool isTopEdge, Vector3 roomPosition, Vector2Int roomCoord)
         {
             if (isTopEdge)
             {
@@ -122,29 +145,39 @@ namespace HuntTheMonster.LevelGeneration
             }
             else
             {
-                Instantiate(wallWithDoor, roomPosition, Quaternion.identity, _rootTransform);
+                var door = Instantiate(wallWithDoor, roomPosition, Quaternion.identity, _rootTransform);
+                var markable = door.GetComponent<WallWithDoor>().Door.GetComponent<Markable>();
+                var room = _level.Rooms[roomCoord.x, roomCoord.y];
+                var isThereRoomToTop = roomCoord.y < _level.Rooms.GetLength(1) - 1;
+                
+                room.MarkableDoors.Add(markable);
+
+                if (isThereRoomToTop)
+                {
+                    var topRoom = _level.Rooms[roomCoord.x, roomCoord.y];
+                    topRoom.MarkableDoors.Add(markable);
+                }
             }
         }
 
         private void PlacePlayer()
         {
-            for (var x = 0; x < _level.Rooms.GetLength(0); x++)
-            {
-                for (var y = 0; y < _level.Rooms.GetLength(1); y++)
-                {
-                    var room = _level.Rooms[x, y];
-
-                    if (room.HasEntity(typeof(PlayerEntity)))
-                    {
-                        var roomPosition = new Vector3(x * roomWidth, 0, y * roomLength);
-                        Instantiate(player, roomPosition, Quaternion.identity, _rootTransform);
-                        return;
-                    }
-                }
-            }
+            var playerRoomCoord = FindRoomWithEntity(typeof(PlayerEntity));
+            var roomPosition = new Vector3(playerRoomCoord.x * roomWidth, 0, playerRoomCoord.y * roomLength);
+            Instantiate(player, roomPosition, Quaternion.identity, _rootTransform);
         }
 
         private void PlaceMonster()
+        {
+            var monsterRoomCoord = FindRoomWithEntity(typeof(MonsterEntity));
+            var roomPosition = new Vector3(monsterRoomCoord.x * roomWidth, 0, monsterRoomCoord.y * roomLength);
+            var room = _level.Rooms[monsterRoomCoord.x, monsterRoomCoord.y];
+            
+            Instantiate(monster, roomPosition, Quaternion.identity, _rootTransform);
+            room.MarkableDoors.ForEach(markable => markable.isMonsterDoor = true);
+        }
+
+        private Vector2Int FindRoomWithEntity(Type entityType)
         {
             for (var x = 0; x < _level.Rooms.GetLength(0); x++)
             {
@@ -152,14 +185,14 @@ namespace HuntTheMonster.LevelGeneration
                 {
                     var room = _level.Rooms[x, y];
 
-                    if (room.HasEntity(typeof(MonsterEntity)))
+                    if (room.HasEntity(entityType))
                     {
-                        var roomPosition = new Vector3(x * roomWidth, 0, y * roomLength);
-                        Instantiate(monster, roomPosition, Quaternion.identity, _rootTransform);
-                        return;
+                        return new Vector2Int(x, y);
                     }
                 }
             }
+
+            throw new Exception("Room with entity type " + entityType + " not found");
         }
     }
 }
