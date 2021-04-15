@@ -5,12 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/_Project/Scenes/HandMadeScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/_Project/Scenes/GameOverScene.unity
-    guid: af388f15fee7f2d4ebe568992d0454c8
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/_Project/Scenes/GeneratedScene.unity
     guid: d63561cd604f63c4691a427b6348e7ad
