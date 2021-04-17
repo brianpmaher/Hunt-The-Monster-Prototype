@@ -15,7 +15,7 @@ namespace HuntTheMonster.LevelGeneration
         [SerializeField] private float roomLength = 10f;
         [SerializeField] private GameObject rootLevel;
         [SerializeField] private int numTraps = 1;
-        
+
         [Header("Level Components")]
         [SerializeField] private GameObject roomFloor;
         [SerializeField] private GameObject solidWall;
@@ -171,12 +171,12 @@ namespace HuntTheMonster.LevelGeneration
                 var markable = door.GetComponent<WallWithDoor>().Door.GetComponent<Markable>();
                 var room = _level.Rooms[roomCoord.x, roomCoord.y];
                 var isThereRoomToTop = roomCoord.y < _level.Rooms.GetLength(1) - 1;
-                
+
                 room.MarkableDoors.Add(markable);
 
                 if (isThereRoomToTop)
                 {
-                    var topRoom = _level.Rooms[roomCoord.x, roomCoord.y];
+                    var topRoom = _level.Rooms[roomCoord.x, roomCoord.y + 1];
                     topRoom.MarkableDoors.Add(markable);
                 }
             }
