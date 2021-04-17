@@ -31,6 +31,7 @@ namespace HuntTheMonster
 
         private void RestartGame()
         {
+            Time.timeScale = 1;
             SceneManager.LoadScene("GeneratedScene");
         }
 
