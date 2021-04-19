@@ -1464,6 +1464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cec68bc7268441e85b8671526afd114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxInteractableDistance: 3.5
   playerCamera: {fileID: 0}
   crosshairImage: {fileID: 1769324624}
 --- !u!114 &1289019199

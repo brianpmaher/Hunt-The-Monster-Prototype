@@ -6,6 +6,7 @@ namespace HuntTheMonster.UI
 {
     public class CrosshairContainer : MonoBehaviour
     {
+        [SerializeField] private float maxInteractableDistance = 2f;
         [SerializeField] public Camera playerCamera;
         [SerializeField] private Image crosshairImage;
 
@@ -31,9 +32,13 @@ namespace HuntTheMonster.UI
 
             if (Physics.Raycast(ray, out var hit))
             {
-                _interactable = hit.collider.gameObject.GetComponent<Interactable>();
-                if (_interactable != null)
+                var hitGameObject = hit.collider.gameObject;
+                var interactable = hitGameObject.GetComponent<Interactable>();
+                var distance = Vector3.Distance(hitGameObject.transform.position, playerCamera.transform.position);
+
+                if (interactable != null && distance <= maxInteractableDistance)
                 {
+                    _interactable = interactable;
                     SetInteractableCrosshair();
                 }
                 else
