@@ -1,6 +1,5 @@
 ﻿using HuntTheMonster.EventChannels;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace HuntTheMonster.UI

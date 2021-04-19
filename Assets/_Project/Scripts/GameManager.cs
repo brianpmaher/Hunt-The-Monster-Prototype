@@ -7,14 +7,22 @@ namespace HuntTheMonster
 {
     public class GameManager : MonoBehaviour
     {
+        [SerializeField] private VoidEventChannel startGameEventChannel;
         [SerializeField] private VoidEventChannel restartGameEventChannel;
         [SerializeField] private VoidEventChannel exitGameEventChannel;
         [SerializeField] private VoidEventChannel gameOverEventChannel;
         [SerializeField] private VoidEventChannel gameWinEventChannel;
         [SerializeField] public CursorLock cursorLockScript;
 
+        private void Start()
+        {
+            Time.timeScale = 0;
+            cursorLockScript.enabled = false;
+        }
+
         private void OnEnable()
         {
+            startGameEventChannel.OnEventRaised += HandleGameStart;
             restartGameEventChannel.OnEventRaised += RestartGame;
             exitGameEventChannel.OnEventRaised += ExitGame;
             gameOverEventChannel.OnEventRaised += HandleGameEnd;
@@ -23,15 +31,21 @@ namespace HuntTheMonster
 
         private void OnDisable()
         {
+            startGameEventChannel.OnEventRaised -= HandleGameStart;
             restartGameEventChannel.OnEventRaised -= RestartGame;
             exitGameEventChannel.OnEventRaised -= ExitGame;
             gameOverEventChannel.OnEventRaised -= HandleGameEnd;
             gameWinEventChannel.OnEventRaised -= HandleGameEnd;
         }
+        
+        private void HandleGameStart()
+        {
+            Time.timeScale = 1;
+            cursorLockScript.enabled = true;
+        }
 
         private void RestartGame()
         {
-            Time.timeScale = 1;
             SceneManager.LoadScene("GeneratedScene");
         }
 
