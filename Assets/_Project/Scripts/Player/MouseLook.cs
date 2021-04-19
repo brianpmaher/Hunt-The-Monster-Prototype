@@ -19,8 +19,11 @@ namespace HuntTheMonster.Player
             var vertical = -Input.GetAxis("Mouse Y") * verticalLookSpeed * Time.deltaTime;
             var cameraRotation = new Vector3(vertical, 0, 0);
             var transformRotation = new Vector3(0, horizontal, 0);
+            var cameraQuaternion = firstPersonCamera.transform.rotation * Quaternion.Euler(cameraRotation);
+            var upVector = cameraQuaternion * Vector3.up;
+            var wontBecomeUpsideDown = upVector.y > 0f;
             
-            firstPersonCamera.transform.Rotate(cameraRotation);
+            if (wontBecomeUpsideDown) firstPersonCamera.transform.rotation = cameraQuaternion;
             transform.Rotate(transformRotation);
         }
     }
