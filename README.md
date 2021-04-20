@@ -1,6 +1,12 @@
 # Hunt the Monster - Prototype
 
+![Header](./docs/header.png)
+
 Prototype game for a roguelike puzzle game with rules similar to Hunt the Wumpus.
+
+[Play on itch.io](https://brianpmaher.itch.io/hunt-the-monster-prototype)
+
+![Instructions](./docs/instructions.png)
 
 # Dependencies
 
