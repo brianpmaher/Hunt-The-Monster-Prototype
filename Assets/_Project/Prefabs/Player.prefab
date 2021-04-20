@@ -165,8 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstPersonCamera: {fileID: 8925295192682697566}
-  verticalLookSpeed: 250
-  horizontalLookSpeed: 250
+  verticalLookSpeed: 100
+  horizontalLookSpeed: 100
 --- !u!114 &8925295194043415089
 MonoBehaviour:
   m_ObjectHideFlags: 0
